@@ -8,7 +8,7 @@
 <body>
     <h1>Calculadora Simples</h1>
     <form name="calc">
-        <input type="text" name="visor"/></br>
+        <input type="text" id="visor"/></br>
         <input type="button" value="7" onclick= "botao(value);"/>
         <input type="button" value="8" onclick= "botao(value);"/>
         <input type="button" value="9" onclick= "botao(value);"/>
@@ -28,7 +28,7 @@
         <input type="button" value="C" onclick= "reseta();"/>
         <input type="button" value="=" onclick= "calcule();"/>
         <input type="button" value="+" onclick= "botao(value);"/>
-
+        <div id="resultado"></div>
     <script>
         function botao(numero){
             var digitado = document.calc.visor.value;
@@ -36,12 +36,18 @@
         }
         function reseta(){
             document.calc.visor.value = " ";
+            document.getElementById("visor").style.color ="black";
 
         }
         function calcule(){
             var digitado = document.calc.visor.value;
             var resultado = eval(digitado);
             document.calc.visor.value =  resultado;
+            if(resultado<0){
+                document.getElementById("visor").style.color = "red";
+            }else{
+                document.getElementById("visor").style.color="blue";
+            }
         }
     
     </script>
